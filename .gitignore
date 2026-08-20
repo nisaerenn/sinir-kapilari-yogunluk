@@ -1,0 +1,1 @@
+backend/appsettings.Development.json backend/bin/ backend/obj/ frontend/node_modules/ frontend/dist/ .DS_Store

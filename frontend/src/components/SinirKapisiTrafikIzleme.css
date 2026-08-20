@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* Vite'ın varsayılan index.css/App.css dosyası genelde #root'a max-width ve
+   margin:auto uygular; bu, bizim tam ekran shell'imizin ortada dar bir
+   kutuya sıkışmasına sebep olur. Burada bilerek ve yüksek öncelikle
+   sıfırlıyoruz. */
+html, body, #root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100vh;
+  text-align: left !important;
+}
+
+/* ============ DIŞ KABUK: Sidebar + Header ============ */
+.skti-shell {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
+  background: #f5f7fa;
+}
+.skti-shell * { box-sizing: border-box; }
+
+.skti-sidebar-overlay {
+  display: none;
+}
+
+.skti-sidebar {
+  width: 232px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-right: 1px solid #e4e8ee;
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skti-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px 16px 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e4e8ee;
+}
+.skti-logo-mark {
+  width: 32px; height: 32px; border-radius: 9px;
+  background: #2f8fe0; color: #fff;
+  font-size: 15px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.skti-logo-text { font-size: 14.5px; font-weight: 700; color: #14213d; line-height: 1.2; }
+.skti-logo-sub { font-size: 11px; color: #6b7280; }
+
+.skti-nav-group-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #9aa4b8;
+  padding: 14px 10px 6px;
+}
+.skti-nav { display: flex; flex-direction: column; gap: 2px; }
+.skti-nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px; border-radius: 8px;
+  font-size: 13.5px; font-weight: 500; color: #4b5563;
+  cursor: pointer;
+}
+.skti-nav-item:hover { background: #f2f4f7; color: #1c2230; }
+.skti-nav-item.active { background: #eaf5fd; color: #2478c2; font-weight: 600; }
+.skti-nav-item svg { flex-shrink: 0; }
+
+.skti-main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+.skti-topheader {
+  height: 60px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e4e8ee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+.skti-panel-toggle {
+  background: none; border: none; color: #6b7280; cursor: pointer;
+  padding: 6px; border-radius: 6px; display: flex;
+}
+.skti-panel-toggle:hover { background: #f2f4f7; }
+.skti-topheader-right { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+.skti-bell { color: #6b7280; }
+.skti-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #eaf5fd; color: #2478c2;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.skti-user-text { line-height: 1.25; }
+.skti-user-name { font-size: 12.5px; font-weight: 600; color: #1c2230; }
+.skti-user-role { font-size: 11px; color: #6b7280; }
+
+/* ============ İÇ SAYFA ============ */
+.skti-page {
+  --navy: #14213d;
+  --accent: #2f8fe0;
+  --ink: #1c2230;
+  --muted: #6b7280;
+  --border: #e4e8ee;
+  --page-bg: #f5f7fa;
+  --surface: #ffffff;
+
+  --level-low: #1f9254; --level-low-bg: #e7f6ee;
+  --level-medium: #b8901a; --level-medium-bg: #fbf3dc;
+  --level-high: #c8660f; --level-high-bg: #fdead9;
+  --level-critical: #c23b3b; --level-critical-bg: #fbeaea;
+
+  font-family: "Inter", -apple-system, "Segoe UI", sans-serif !important;
+  color: var(--ink);
+  background: var(--page-bg);
+  padding: 26px 30px 40px;
+  flex: 1;
+}
+
+/* Vite'ın varsayılan şablon CSS'i (App.css/index.css) h1/h2/h3/p için çok
+   büyük, farklı fontlu, ortalanmış stiller bırakmış olabilir — bu satırlar
+   bunu bilerek ve yüksek öncelikle geçersiz kılıyor. */
+.skti-page h1, .skti-page h2, .skti-page h3, .skti-page h4, .skti-page p {
+  font-family: "Inter", -apple-system, "Segoe UI", sans-serif !important;
+  text-align: left;
+  margin: 0;
+  line-height: normal;
+}
+
+/* Header */
+.skti-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.skti-header { margin-bottom: 20px; }
+
+/* Başlık — id kadar güçlü, tek amaçlı bir class. Sayfadaki hiçbir global
+   stil (Vite'ın index.css/App.css varsayılanları dahil) bunu geçemesin diye
+   her özelliği ayrı ayrı ve !important ile tanımlıyoruz. */
+h1.skti-main-title {
+  font-family: "Inter", -apple-system, "Segoe UI", Arial, sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  color: #14213d !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.3 !important;
+  text-align: left !important;
+  text-transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.skti-search { position: relative; z-index: 5; }
+
+.skti-search input {
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-family: inherit;
+  font-size: 13px;
+  width: 240px;
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+.skti-search input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.skti-state { padding: 40px; text-align: center; color: var(--muted); font-size: 13.5px; }
+.skti-state-error { color: var(--level-critical); }
+
+/* Grid */
+.gate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+/* Kapı kartı */
+.gate-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.gate-card:hover { box-shadow: 0 6px 18px rgba(20, 33, 61, 0.08); transform: translateY(-1px); }
+
+.gate-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.gate-card-top h3 { font-size: 15.5px; font-weight: 700; color: var(--navy); margin: 0 0 2px; }
+.gate-location { font-size: 11.5px; color: var(--muted); }
+
+.level-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.level-low { background: var(--level-low-bg); color: var(--level-low); }
+.level-medium { background: var(--level-medium-bg); color: var(--level-medium); }
+.level-high { background: var(--level-high-bg); color: var(--level-high); }
+.level-critical { background: var(--level-critical-bg); color: var(--level-critical); }
+.level-unavailable { background: #eef0f3; color: var(--muted); }
+
+.unavailable-block {
+  padding: 14px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-style: italic;
+}
+
+.gate-bar-track { height: 6px; border-radius: 4px; background: var(--border); overflow: hidden; }
+.gate-bar-fill { height: 100%; border-radius: 4px; transition: width 0.4s ease; }
+.gate-bar-fill.level-low { background: var(--level-low); }
+.gate-bar-fill.level-medium { background: var(--level-medium); }
+.gate-bar-fill.level-high { background: var(--level-high); }
+.gate-bar-fill.level-critical { background: var(--level-critical); }
+
+.gate-stats-row { display: flex; justify-content: space-between; }
+.gate-stats-row > div { display: flex; flex-direction: column; gap: 3px; }
+.stat-label { font-size: 11px; color: var(--muted); }
+.stat-value { font-size: 17px; font-weight: 700; color: var(--ink); }
+
+.gate-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.detail-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+
+/* ============ MODAL ============ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 33, 61, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 20px;
+}
+.modal-panel {
+  background: var(--surface);
+  border-radius: 14px;
+  width: 560px;
+  max-width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 24px;
+  font-family: "Inter", sans-serif;
+  color: var(--ink);
+}
+.modal-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.modal-title-row { display: flex; align-items: center; gap: 10px; }
+.modal-title-row h2 { font-size: 19px; font-weight: 700; color: var(--navy); margin: 0; }
+.modal-close { background: none; border: none; color: var(--muted); font-size: 16px; cursor: pointer; padding: 4px; }
+.modal-close:hover { color: var(--ink); }
+.modal-subline { font-size: 12.5px; color: var(--muted); margin: 4px 0 20px; }
+
+.modal-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.modal-stats-grid > div { display: flex; flex-direction: column; gap: 4px; }
+.stat-value-lg { font-size: 18px; font-weight: 700; color: var(--navy); }
+.stat-value-sm { font-size: 14px; }
+
+.modal-section {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.modal-section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.modal-section h4 { font-size: 12.5px; font-weight: 700; color: var(--navy); letter-spacing: 0.02em; margin: 0 0 4px; }
+.modal-section-subline { font-size: 11.5px; color: var(--muted); margin-bottom: 14px; }
+
+.traffic-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 10px; }
+.traffic-stats-grid > div { display: flex; flex-direction: column; gap: 3px; }
+
+.source-tag { font-size: 11px; color: var(--muted); font-style: italic; }
+
+/* Kamera */
+.camera-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.camera-tab {
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 6px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+}
+.camera-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.camera-frame {
+  background: #f5f7fa;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.camera-image { width: 100%; height: auto; display: block; }
+.camera-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 44px 20px;
+  text-align: center;
+}
+.camera-error-icon { font-size: 26px; opacity: 0.5; }
+
+.camera-caption { font-size: 11px; color: var(--muted); line-height: 1.5; margin: 10px 0 0; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .skti-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 40;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 0 0 24px rgba(20, 33, 61, 0.15);
+  }
+  .skti-sidebar.open { transform: translateX(0); }
+
+  .skti-sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 33, 61, 0.35);
+    z-index: 35;
+  }
+
+  .skti-panel-toggle { display: flex; }
+  .skti-user-text { display: none; }
+  .skti-header { flex-direction: column; align-items: stretch; }
+  .skti-search input { width: 100%; }
+  .gate-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 901px) {
+  .skti-panel-toggle { display: none; }
+}
+
+@media (max-width: 640px) {
+  .skti-page { padding: 18px 16px 30px; }
+  .skti-topheader { padding: 0 16px; }
+  .gate-grid { grid-template-columns: 1fr; }
+  .modal-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .traffic-stats-grid { grid-template-columns: repeat(1, 1fr); }
+  .modal-panel { padding: 18px; }
+}
